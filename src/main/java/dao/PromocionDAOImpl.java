@@ -6,15 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import jdbc.Conexion;
 import model.Atraccion;
-import model.Ofertable;
 import model.PromoAbsoluta;
 import model.PromoAxB;
 import model.PromoPorcentual;
 import model.Promocion;
-
 
 public class PromocionDAOImpl implements PromocionaDAO {
 
@@ -37,7 +34,6 @@ public class PromocionDAOImpl implements PromocionaDAO {
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
-
 	}
 
 	public int contarTodos() throws SQLException {
@@ -63,7 +59,7 @@ public class PromocionDAOImpl implements PromocionaDAO {
 			PreparedStatement statement = conn.prepareStatement(sql);
 
 			statement.setString(1, promocion.getNombre());
-			statement.setString(2,"");
+			statement.setString(2, "");
 			statement.setDouble(3, promocion.getDescuento());
 			statement.setString(4, promocion.getTipo());
 			statement.setString(5, promocion.getAtraccionesIncluidas().get(0));
@@ -80,19 +76,24 @@ public class PromocionDAOImpl implements PromocionaDAO {
 	public int actualizarDatos(Promocion promocion) throws SQLException {
 		try {
 			String sql = "UPDATE Promocion SET nombre = ?,descripcion = ?,descuento = ?,tipo_id = (SELECT id FROM TipoAtraccion WHERE descripcion = ?),atraccion1_id= (SELECT id FROM Atraccion WHERE nombre=?),atraccion2_id =(SELECT id FROM Atraccion WHERE nombre=?),atraccion3_id = (SELECT id FROM Atraccion WHERE nombre=?) WHERE id = ?";
+			String sql2 = "UPDATE Atraccion SET cupo = ? WHERE id = ?";
 			Connection conn = Conexion.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
+			PreparedStatement statement2 = conn.prepareStatement(sql2);
+
+			for (int i = 0; i < promocion.getItinerario().length; i++) {
+				statement2.setInt(1, promocion.getItinerario()[i].getCupo());
+				statement2.setInt(2, promocion.getItinerario()[i].getId());
+				statement2.executeUpdate();
+			}
 
 			statement.setString(1, promocion.getNombre());
-			statement.setString(2,"");
+			statement.setString(2, "");
 			statement.setDouble(3, promocion.getDescuento());
 			statement.setString(4, promocion.getTipo());
-			statement.setString(5, promocion.getAtraccionesIncluidas().get(0));
-			statement.setString(6, promocion.getAtraccionesIncluidas().get(1));
-			statement.setString(7, promocion.getAtraccionesIncluidas().get(2));
 			statement.setInt(8, promocion.getId());
 			int rows = statement.executeUpdate();
-			promocion.getAtraccionesIncluidas();
+
 			return rows;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
@@ -112,9 +113,8 @@ public class PromocionDAOImpl implements PromocionaDAO {
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
-	
 	}
-	
+
 	public Promocion encontrarPorID(int ID) {
 		try {
 			String sql = "SELECT * from Promocion JOIN TipoAtraccion on Promocion.tipo_id = TipoAtraccion.id WHERE Promocion.id=?";
@@ -133,9 +133,8 @@ public class PromocionDAOImpl implements PromocionaDAO {
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
-		
 	}
-	
+
 	private Promocion aPromocion(ResultSet resultados) throws SQLException {
 
 		if (resultados.getString(2).equals("absoluta")) {
@@ -151,7 +150,6 @@ public class PromocionDAOImpl implements PromocionaDAO {
 			return new PromoPorcentual(resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),
 					resultados.getInt(4));
 		}
-
 		return null;
 	}
 
@@ -190,9 +188,4 @@ public class PromocionDAOImpl implements PromocionaDAO {
 		Atraccion atraccioens[] = { a1, a2, a3 };
 		return atraccioens;
 	}
-
-	
-
-	
-
 }

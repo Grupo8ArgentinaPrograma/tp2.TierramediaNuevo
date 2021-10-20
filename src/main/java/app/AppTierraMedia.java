@@ -1,23 +1,13 @@
 package app;
 
-
 import java.sql.SQLException;
-
-import dao.UsuarioDAOImpl;
 import model.Sistema;
-import model.Usuario;
-
-
 
 public class AppTierraMedia {
 
 	public static void main(String[] args) throws SQLException {
-		
 
-
-		Sistema sistema = new Sistema();
-		
-		
+		Sistema sistema = new Sistema();	
 		System.out.println("" 
 				+ "\n"
 				+ "                                 /\\\r\n"
@@ -57,29 +47,19 @@ public class AppTierraMedia {
 
 		System.out.println("   ******************************************************");
 		System.out.println("\nBienvenido a la Tierra Media!!!");
-		
 		sistema.cargarAtracciones();
 		sistema.cargarPromociones();
 		sistema.cargarUsuarios();
-		
 		System.out.println();
 		System.out.println();
-		
 		System.err.println("\n");
 		System.out.println("                          ************************************");
 		System.out.println("                           Comenzamos con las sugerencias!!!");
 		System.out.println("                          ************************************");
 		System.out.println("\n\n");
 		sistema.hacerOfertas();	
-
 		System.out.println("                     ******************************************");
 		System.out.println("                       No hay mas visitantes por el dia de hoy");
 		System.out.println("                     ******************************************");
-
 	}
-
 }
-
-
-
-

@@ -1,7 +1,5 @@
 package model;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -10,7 +8,6 @@ import dao.AtraccionDAOImpl;
 import dao.DAOFactory;
 import dao.PromocionDAOImpl;
 import dao.UsuarioDAOImpl;
-
 
 public class Sistema {
 
@@ -30,7 +27,6 @@ public class Sistema {
 		this.ofertasDiaria = new ArrayList<Ofertable>();
 	}
 	
-
 	public  ArrayList<Usuario> getVisitantes(){
 		return this.visitantes;
 	}
@@ -209,9 +205,7 @@ public class Sistema {
 	
 	public void cargarPromociones() {
 		PromocionDAOImpl promo =(PromocionDAOImpl) DAOFactory.getPromocionDAO();
-		this.promociones.addAll(promo.encontrarTodos()); 
-		
-		
+		this.promociones.addAll(promo.encontrarTodos()); 	
 	}
 	
 }

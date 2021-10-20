@@ -6,11 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import jdbc.Conexion;
 import model.Atraccion;
-import model.Ofertable;
-
 
 public class AtraccionDAOImpl implements AtraccionDAO {
 
@@ -101,6 +98,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			throw new MissingDataException(e);
 		}
 	}
+	
 	public Atraccion encontrarPorNombre(String nombre) {
 		try {
 			String sql = "SELECT Atraccion.id,Atraccion.nombre,Atraccion.costo,Atraccion.tiempo,Atraccion.cupo, TipoAtraccion.descripcion FROM Atraccion JOIN TipoAtraccion on Atraccion.tipo_id = TipoAtraccion.id WHERE nombre = ?";
@@ -140,14 +138,8 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			throw new MissingDataException(e);
 		}
 	}
-
-	
-	
-
 	private Atraccion aAtraccion(ResultSet resultados) throws SQLException {
 		return new Atraccion(resultados.getInt(1),resultados.getString(2), resultados.getDouble(3), resultados.getDouble(4),
 				resultados.getInt(5),resultados.getString(6));
 	}
-
-	
 }
