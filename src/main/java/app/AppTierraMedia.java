@@ -2,13 +2,18 @@ package app;
 
 
 import java.sql.SQLException;
+
+import dao.UsuarioDAOImpl;
 import model.Sistema;
+import model.Usuario;
 
 
 
 public class AppTierraMedia {
 
 	public static void main(String[] args) throws SQLException {
+		
+
 
 		Sistema sistema = new Sistema();
 		

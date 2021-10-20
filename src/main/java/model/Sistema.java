@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import dao.AtraccionDAOImpl;
+import dao.DAOFactory;
 import dao.PromocionDAOImpl;
 import dao.UsuarioDAOImpl;
 
@@ -87,6 +88,7 @@ public class Sistema {
 		
 		Scanner escaner = new Scanner(System.in);
 		int respuesta = 0;
+		UsuarioDAOImpl usu = (UsuarioDAOImpl) DAOFactory.getUsuarioDAO();
 		
 		for (Usuario visitante : visitantes) {
 			this.setOfertas(visitante);
@@ -109,6 +111,8 @@ public class Sistema {
 
 					if (respuesta == 1) {
 						visitante.comprarProducto(producto);
+						usu.actualizarDatos(visitante);
+						
 					}
 				}
 				System.out.println("\n" + visitante.getNombre() + " terminaste de comprar gasto: " +getGastoTotal(visitante)
@@ -182,23 +186,18 @@ public class Sistema {
 ////////////////////////////Carga de archivos //////////////////////////////////////////
 
 	public void cargarUsuarios() {
-
-		UsuarioDAOImpl usu = new UsuarioDAOImpl();
+		UsuarioDAOImpl usu = (UsuarioDAOImpl) DAOFactory.getUsuarioDAO();
 		visitantes.addAll(usu.encontrarTodos());
-		
 	}
 
 	public void cargarAtracciones() {
-
-		AtraccionDAOImpl a = new AtraccionDAOImpl();
+		AtraccionDAOImpl a =(AtraccionDAOImpl) DAOFactory.getAtraccionDAO();
 		this.atracciones.addAll(a.encontrarTodos());
-		
-	
+
 	}
 	
 	public void cargarPromociones() {
-	
-		PromocionDAOImpl promo = new PromocionDAOImpl();
+		PromocionDAOImpl promo =(PromocionDAOImpl) DAOFactory.getPromocionDAO();
 		this.promociones.addAll(promo.encontrarTodos()); 
 		
 		
