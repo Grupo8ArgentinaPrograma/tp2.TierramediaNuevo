@@ -16,6 +16,7 @@ public abstract class Promocion extends Ofertable {
 		this.itinerario = paquete;
 		this.atraccionesIncluidas = new ArrayList<String>();
 		super.setTiempo(getTiempoRecorrido());
+		this.setAtraccionesIncluidas();
 		
 	}
 	public Promocion(String nombre, Atraccion[] paquete, String tipo, int descuento) {
@@ -23,6 +24,7 @@ public abstract class Promocion extends Ofertable {
 		this.setDescuento(descuento);
 		this.itinerario = paquete;
 		this.atraccionesIncluidas = new ArrayList<String>();
+		this.setAtraccionesIncluidas();
 		super.setTiempo(getTiempoRecorrido());
 	}
 	
@@ -66,12 +68,20 @@ public abstract class Promocion extends Ofertable {
 		}
 	}
 
-	public ArrayList<String> getAtraccionesIncluidas() {
+	private void  setAtraccionesIncluidas() {
 		for (Atraccion a : itinerario) {
+			if(atraccionesIncluidas.contains(a)) {
+				continue;
+			}
 			atraccionesIncluidas.add(a.getNombre());
 		}
+		
+	}
+	
+	public ArrayList<String> getAtraccionesIncluidas(){
 		return atraccionesIncluidas;
 	}
+	
 	
 	public int getId() {
 		return id;

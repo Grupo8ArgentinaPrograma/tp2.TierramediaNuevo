@@ -9,6 +9,7 @@ import java.util.List;
 
 import jdbc.Conexion;
 import model.Atraccion;
+import model.Ofertable;
 
 
 public class AtraccionDAOImpl implements AtraccionDAO {
@@ -66,18 +67,18 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 		}
 	}
 
-	public int actualizarDatos(Atraccion Atraccion) {
+	public int actualizarDatos(Atraccion producto) {
 		try {
 			String sql = "UPDATE Atraccion SET nombre = ?,costo = ?, tiempo = ?, cupo = ?, tipo_id = (SELECT id FROM TipoAtraccion WHERE descripcion = ?) WHERE id = ?";
 			Connection conn = Conexion.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, Atraccion.getNombre());
-			statement.setDouble(2, Atraccion.getCosto());
-			statement.setDouble(3, Atraccion.getTiempo());
-			statement.setInt(4, Atraccion.getCupo());
-			statement.setString(5, Atraccion.getTipo());
-			statement.setInt(6, Atraccion.getId());
+			statement.setString(1, producto.getNombre());
+			statement.setDouble(2, producto.getCosto());
+			statement.setDouble(3, producto.getTiempo());
+			statement.setInt(4, producto.getCupo());
+			statement.setString(5, producto.getTipo());
+			statement.setInt(6, producto.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;

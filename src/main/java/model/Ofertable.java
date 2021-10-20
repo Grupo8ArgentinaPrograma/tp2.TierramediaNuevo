@@ -105,4 +105,6 @@ public abstract class Ofertable {
 			return false;
 		return true;
 	}
+
+	
 }

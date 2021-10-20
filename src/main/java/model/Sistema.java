@@ -1,6 +1,9 @@
 package model;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
+
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import dao.AtraccionDAOImpl;
@@ -84,11 +87,13 @@ public class Sistema {
 
 	}
 
-	public void hacerOfertas() {
+	public void hacerOfertas() throws SQLException {
 		
 		Scanner escaner = new Scanner(System.in);
 		int respuesta = 0;
 		UsuarioDAOImpl usu = (UsuarioDAOImpl) DAOFactory.getUsuarioDAO();
+		PromocionDAOImpl pro = (PromocionDAOImpl) DAOFactory.getPromocionDAO();
+		AtraccionDAOImpl atra = (AtraccionDAOImpl) DAOFactory.getAtraccionDAO();
 		
 		for (Usuario visitante : visitantes) {
 			this.setOfertas(visitante);
@@ -108,10 +113,16 @@ public class Sistema {
 					System.out.println("\n ¿"+visitante.getNombre() + " queres comprar?" + producto+"\n");
 					System.out.print(" 1 para comprar, cualquier otro numero para seguir>>");
 					respuesta = escaner.nextInt();
-
+					
 					if (respuesta == 1) {
 						visitante.comprarProducto(producto);
 						usu.actualizarDatos(visitante);
+						
+						if(producto instanceof Atraccion) {
+							atra.actualizarDatos((Atraccion)producto);
+						}else {	
+							pro.actualizarDatos((Promocion) producto);
+						}
 						
 					}
 				}

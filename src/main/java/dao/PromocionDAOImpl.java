@@ -9,6 +9,7 @@ import java.util.List;
 
 import jdbc.Conexion;
 import model.Atraccion;
+import model.Ofertable;
 import model.PromoAbsoluta;
 import model.PromoAxB;
 import model.PromoPorcentual;
@@ -78,7 +79,7 @@ public class PromocionDAOImpl implements PromocionaDAO {
 
 	public int actualizarDatos(Promocion promocion) throws SQLException {
 		try {
-			String sql = "UPDATE Promocion nombre = ?,descripcion = ?,descuento = ?,tipo_id = (SELECT id FROM TipoAtraccion WHERE descripcion = ?),atraccion1_id= (SELECT id FROM Atraccion WHERE nombre=?),atraccion2_id =(SELECT id FROM Atraccion WHERE nombre=?),atraccion3_id = (SELECT id FROM Atraccion WHERE nombre=?)) WHERE id = ?";
+			String sql = "UPDATE Promocion SET nombre = ?,descripcion = ?,descuento = ?,tipo_id = (SELECT id FROM TipoAtraccion WHERE descripcion = ?),atraccion1_id= (SELECT id FROM Atraccion WHERE nombre=?),atraccion2_id =(SELECT id FROM Atraccion WHERE nombre=?),atraccion3_id = (SELECT id FROM Atraccion WHERE nombre=?) WHERE id = ?";
 			Connection conn = Conexion.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 
@@ -189,6 +190,8 @@ public class PromocionDAOImpl implements PromocionaDAO {
 		Atraccion atraccioens[] = { a1, a2, a3 };
 		return atraccioens;
 	}
+
+	
 
 	
 
