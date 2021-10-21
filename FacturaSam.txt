@@ -1,0 +1,22 @@
+
+      *                                     *
+{o)xxx|===============-    *    -===============|xxx(o}
+      *                                     *
+ 
+            Nombre visitante: Sam
+            monto a pagar: $45.0
+            Duracion del reccorido: 4.0Hs
+
+      *                                     *
+{o)xxx|===============-    *    -===============|xxx(o}
+      *                                     *
+
+                DETALLES DE LA COMPRA
+
+[
+ Nombre: Isengard --  Tipo: Paisaje --  Costo: $45.0 --  Tiempo:4.0 Hs
+]
+
+      *                                     *
+{o)xxx|===============-    *    -===============|xxx(o}
+      *                                     *

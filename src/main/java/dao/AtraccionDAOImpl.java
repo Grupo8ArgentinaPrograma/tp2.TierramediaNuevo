@@ -66,7 +66,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 
 	public int actualizarDatos(Atraccion producto) {
 		try {
-			String sql = "UPDATE Atraccion SET nombre = ?,costo = ?, tiempo = ?, cupo = ?, tipo_id = (SELECT id FROM TipoAtraccion WHERE descripcion = ?) WHERE id = ?";
+			String sql = "UPDATE Atraccion SET nombre = ?,costo = ?, tiempo = ?, cupo = ?, tipo_id = (SELECT id FROM TipoAtraccion WHERE descripcion = ?) WHERE nombre = ?";
 			Connection conn = Conexion.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -75,7 +75,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			statement.setDouble(3, producto.getTiempo());
 			statement.setInt(4, producto.getCupo());
 			statement.setString(5, producto.getTipo());
-			statement.setInt(6, producto.getId());
+			statement.setString(6, producto.getNombre());
 			int rows = statement.executeUpdate();
 
 			return rows;

@@ -1,13 +1,14 @@
 package app;
 
 import java.sql.SQLException;
-import model.Sistema;
 
+import model.Sistema;
 
 public class AppTierraMedia {
 
 	public static void main(String[] args) throws SQLException {
 
+		
 		Sistema sistema = new Sistema();	
 		System.out.println("" 
 				+ "\n"
