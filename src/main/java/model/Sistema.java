@@ -117,7 +117,7 @@ public class Sistema {
 						if(producto instanceof Atraccion) {
 							atra.actualizarDatos((Atraccion)producto);
 						}else {	
-							pro.actualizarDatos((Promocion) producto);
+							pro.actualizarAtraccionesDeLasPromociones((Promocion)producto);
 						}			
 					}
 				}
