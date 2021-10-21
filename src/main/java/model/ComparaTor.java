@@ -14,8 +14,6 @@ public class ComparaTor implements Comparator<Ofertable> {
 		if (costoPrimero.compareTo(costoSegundo) == 0) {
 			return -tiempoPrimero.compareTo(tiempoSegundo);
 		}
-
 		return -costoPrimero.compareTo(costoSegundo);
 	}
-
 } 

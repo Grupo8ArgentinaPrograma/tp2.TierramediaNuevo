@@ -12,9 +12,7 @@ public class Conexion {
 	public static Connection getConnection() throws SQLException {
 		if(conexion == null) {
 			conexion = DriverManager.getConnection(url);
-		}
-		
+		}	
 		return conexion;
 	}
-
 }

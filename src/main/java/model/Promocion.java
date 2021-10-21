@@ -9,16 +9,14 @@ public abstract class Promocion extends Ofertable {
 	private int id;
 	private int descuento;
 	
-
-	
 	public Promocion(String nombre, Atraccion[] paquete, String tipo) {
 		super(nombre, tipo);
 		this.itinerario = paquete;
 		this.atraccionesIncluidas = new ArrayList<String>();
 		super.setTiempo(getTiempoRecorrido());
 		this.setAtraccionesIncluidas();
-		
 	}
+	
 	public Promocion(String nombre, Atraccion[] paquete, String tipo, int descuento) {
 		super(nombre, tipo);
 		this.setDescuento(descuento);
@@ -28,6 +26,15 @@ public abstract class Promocion extends Ofertable {
 		super.setTiempo(getTiempoRecorrido());
 	}
 	
+	public Promocion(String nombre, Atraccion[] paquete, String tipo, int descuento, int id) {
+		super(nombre, tipo);
+		this.setDescuento(descuento);
+		this.itinerario = paquete;
+		this.atraccionesIncluidas = new ArrayList<String>();
+		this.setAtraccionesIncluidas();
+		this.id = id;
+		super.setTiempo(getTiempoRecorrido());
+	}
 	
 	@Override
 	public double getCosto() {
@@ -38,8 +45,7 @@ public abstract class Promocion extends Ofertable {
 		
 		if(total < 0) {
 			throw new Error("El costo no puede ser negativo");
-		}
-		
+		}	
 		return total;
 	}
 
@@ -52,8 +58,7 @@ public abstract class Promocion extends Ofertable {
 
 		if(total < 0) {
 			throw new Error("Tiempo de recorrido no puede ser negativo");
-		}
-		
+		}	
 		return total;
 	}
 
@@ -75,7 +80,6 @@ public abstract class Promocion extends Ofertable {
 			}
 			atraccionesIncluidas.add(a.getNombre());
 		}
-		
 	}
 	
 	public ArrayList<String> getAtraccionesIncluidas(){
@@ -118,8 +122,4 @@ public abstract class Promocion extends Ofertable {
 		}
 		return valor;
 	}
-	
-	
-	
-
 }

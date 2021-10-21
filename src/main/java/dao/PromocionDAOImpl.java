@@ -87,11 +87,6 @@ public class PromocionDAOImpl implements PromocionaDAO {
 				statement2.executeUpdate();
 			}
 
-			statement.setString(1, promocion.getNombre());
-			statement.setString(2, "");
-			statement.setDouble(3, promocion.getDescuento());
-			statement.setString(4, promocion.getTipo());
-			statement.setInt(8, promocion.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -139,16 +134,16 @@ public class PromocionDAOImpl implements PromocionaDAO {
 
 		if (resultados.getString(2).equals("absoluta")) {
 			return new PromoAbsoluta(resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),
-					resultados.getInt(4));
+					resultados.getInt(4),resultados.getInt(1));
 		}
 
 		if (resultados.getString(2).equals("axb")) {
-			return new PromoAxB(resultados.getString(3), crarPaquetes(resultados), resultados.getString(10));
+			return new PromoAxB(resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),resultados.getInt(1),resultados.getInt(1));
 		}
 
 		if (resultados.getString(2).equals("porcentual")) {
 			return new PromoPorcentual(resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),
-					resultados.getInt(4));
+					resultados.getInt(4),resultados.getInt(1));
 		}
 		return null;
 	}

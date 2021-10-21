@@ -3,8 +3,6 @@ package dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import model.Ofertable;
-
 public interface GenericDAO<T> {
 
 	public List<T> encontrarTodos()     throws SQLException;

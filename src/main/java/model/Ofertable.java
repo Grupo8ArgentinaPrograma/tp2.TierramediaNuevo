@@ -29,7 +29,6 @@ public abstract class Ofertable {
 		this.tipo = tipo;
 	}
 
-	
 	abstract protected void ocuparLugar();
 
 	abstract public boolean tieneCupo();
@@ -104,7 +103,5 @@ public abstract class Ofertable {
 		} else if (!nombre.equals(other.nombre))
 			return false;
 		return true;
-	}
-
-	
+	}	
 }

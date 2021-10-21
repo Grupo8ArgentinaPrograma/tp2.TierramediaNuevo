@@ -12,11 +12,6 @@ public class Usuario {
 
 	private ArrayList<Ofertable> productosComprados;
 
-	
-	
-	
-	
-	
 	public Usuario(String nombre, int presupuesto, double tiempoDisponible, String tipoPreferido) {
 
 		if (presupuesto < 0 || tiempoDisponible < 0) {
@@ -28,12 +23,16 @@ public class Usuario {
 		this.tiempoDisponible = tiempoDisponible;
 		this.tipoPreferido = tipoPreferido;
 		this.productosComprados = new ArrayList<Ofertable>();
-
 	}
 	
 	public Usuario(String nombre, int presupuesto, double tiempoDisponible, String tipoPreferido,int id) {
 		this(nombre,presupuesto,tiempoDisponible,tipoPreferido);
 		this.setId(id);
+	}
+	
+	public Usuario(String nombre, int presupuesto, double tiempoDisponible, String tipoPreferido,int id,ArrayList<Ofertable> productosComprados) {
+		this(nombre,presupuesto,tiempoDisponible,tipoPreferido,id);
+		this.setProductosComprados(productosComprados);	
 	}
 
 	public void gastarDinero(double gasto) {
@@ -95,18 +94,29 @@ public class Usuario {
 	public String getNombre() {
 		return this.nombre;
 	}
-
-	@Override
-	public String toString() {
-		return "Nombre de usuario:" + nombre + ", dineroDisponible:" + dineroDisponible + ", tiempoDisponible:"
-				+ tiempoDisponible + ", tipoPreferido:" + tipoPreferido;
-	}
-
+	
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public ArrayList<Ofertable> getProductosComprados() {
+		return productosComprados;
+	}
+
+	public void setProductosComprados(ArrayList<Ofertable> productosComprados) {
+		this.productosComprados = new ArrayList<Ofertable>();
+		this.productosComprados = productosComprados;
+	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Nombre de usuario:" + nombre + ", dineroDisponible:" + dineroDisponible + ", tiempoDisponible:"
+				+ tiempoDisponible + ", tipoPreferido:" + tipoPreferido;
 	}
 }

@@ -3,7 +3,7 @@ package model;
 public class PromoPorcentual extends Promocion {
 
 	private int descuento;
-
+	
 	public PromoPorcentual(String nombre, Atraccion[] paquete, String tipo, int descuento) {
 		super(nombre, paquete, tipo,descuento);
 		this.descuento = descuento;
@@ -16,7 +16,18 @@ public class PromoPorcentual extends Promocion {
 		}
 	}
 
-
+	public PromoPorcentual(String nombre, Atraccion[] paquete, String tipo, int descuento, int id) {
+		super(nombre, paquete, tipo,descuento,id);
+		this.descuento = descuento;
+		super.setCosto(getCosto());
+		if (descuento < 0 || descuento > 100) {
+			throw new Error("El descuento no puede ser negativo");
+		}
+		if (descuento > 100) {
+			throw new Error("El descuento no puede ser superior al 100%");
+		}
+	}
+	
 	@Override
 	public void ocuparLugar() {
 		for (Atraccion a : super.getItinerario()) {
@@ -46,7 +57,4 @@ public class PromoPorcentual extends Promocion {
 	public boolean tieneCupo() {
 		return super.tieneCupo();
 	}
-
-	
-
 }

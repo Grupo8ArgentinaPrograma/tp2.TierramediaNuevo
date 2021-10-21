@@ -80,7 +80,6 @@ public class Sistema {
 				this.ofertasDiaria.add(producto);
 			}
 		}
-
 	}
 
 	public void hacerOfertas() throws SQLException {
@@ -113,13 +112,13 @@ public class Sistema {
 					if (respuesta == 1) {
 						visitante.comprarProducto(producto);
 						usu.actualizarDatos(visitante);
+						usu.insertarEnItinerario(producto, visitante);
 						
 						if(producto instanceof Atraccion) {
 							atra.actualizarDatos((Atraccion)producto);
 						}else {	
 							pro.actualizarDatos((Promocion) producto);
-						}
-						
+						}			
 					}
 				}
 				System.out.println("\n" + visitante.getNombre() + " terminaste de comprar gasto: " +getGastoTotal(visitante)

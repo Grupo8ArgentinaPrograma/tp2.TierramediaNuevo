@@ -1,0 +1,68 @@
+
+      *                                     *
+{o)xxx|===============-    *    -===============|xxx(o}
+      *                                     *
+ 
+            Nombre visitante: Sam
+            monto a pagar: $553.0999999999999
+            Duracion del reccorido: 326.0Hs
+
+      *                                     *
+{o)xxx|===============-    *    -===============|xxx(o}
+      *                                     *
+
+                DETALLES DE LA COMPRA
+
+[
+ Nombre: Pack una desgustacion gratis --  Tipo: Paisaje --  Costo: $54.0 --  Tiempo:8.0 Hs
+ Atracciones incluidas en la Promocion: [Hobbiton, Rohan, Hithlum]
+, 
+ Nombre: Pack degustación %20 descuento --  Tipo: Paisaje --  Costo: $42.4 --  Tiempo:37.5 Hs
+ Atracciones incluidas en la Promocion: [La Comarca, Bree, Lothlorien]
+, 
+ Nombre: pack degustacion --  Tipo: Paisaje --  Costo: $20.0 --  Tiempo:9.0 Hs
+ Atracciones incluidas en la Promocion: [Eriador, Gondor, Abismo de Helm]
+, 
+ Nombre: Isengard --  Tipo: Paisaje --  Costo: $45.0 --  Tiempo:4.0 Hs
+, 
+ Nombre: Rhun --  Tipo: Paisaje --  Costo: $43.0 --  Tiempo:4.0 Hs
+, 
+ Nombre: Bosque Viejo --  Tipo: Paisaje --  Costo: $35.0 --  Tiempo:1.0 Hs
+, 
+ Nombre: Colinas Nubladas --  Tipo: Paisaje --  Costo: $15.0 --  Tiempo:30.0 Hs
+, 
+ Nombre: Minas Tirith --  Tipo: Paisaje --  Costo: $12.0 --  Tiempo:1.0 Hs
+, 
+ Nombre: Erebor --  Tipo: Paisaje --  Costo: $10.0 --  Tiempo:3.0 Hs
+, 
+ Nombre: Rhovanion --  Tipo: Paisaje --  Costo: $9.0 --  Tiempo:3.0 Hs
+, 
+ Nombre: Rivendel --  Tipo: Paisaje --  Costo: $3.0 --  Tiempo:6.5 Hs
+, 
+ Nombre: Pack un paisaje gratis --  Tipo: Degustación --  Costo: $50.0 --  Tiempo:35.0 Hs
+ Atracciones incluidas en la Promocion: [Colinas Nubladas, Bosque Viejo, Isengard]
+, 
+ Nombre: Pack paisaje %10 descuento --  Tipo: Degustación --  Costo: $20.7 --  Tiempo:38.5 Hs
+ Atracciones incluidas en la Promocion: [Abismo de Helm, Rivendel, Colinas Nubladas]
+, 
+ Nombre: pack aventura --  Tipo: Aventura --  Costo: $20.0 --  Tiempo:9.5 Hs
+ Atracciones incluidas en la Promocion: [Quebradas de los Tumulos, Rio Brandivino, La Comarca]
+, 
+ Nombre: pack paisaje --  Tipo: Degustación --  Costo: $20.0 --  Tiempo:8.0 Hs
+ Atracciones incluidas en la Promocion: [Rhun, Erebor, Minas Tirith]
+, 
+ Nombre: pack aventura %50 descuento --  Tipo: Aventura --  Costo: $19.0 --  Tiempo:9.0 Hs
+ Atracciones incluidas en la Promocion: [Moria, Mordor, Bosque negro]
+, 
+ Nombre:  --  Tipo: Aventura --  Costo: $19.0 --  Tiempo:9.0 Hs
+ Atracciones incluidas en la Promocion: [Moria, Mordor, Bosque negro]
+, 
+ Nombre: Pack una aventura gratis --  Tipo: Aventura --  Costo: $16.0 --  Tiempo:10.0 Hs
+ Atracciones incluidas en la Promocion: [Cienaga de los muertos, Fangorn, Sendero de los Muertos]
+, 
+ Nombre: nueva --  Tipo: Aventura --  Costo: $100.0 --  Tiempo:100.0 Hs
+]
+
+      *                                     *
+{o)xxx|===============-    *    -===============|xxx(o}
+      *                                     *
