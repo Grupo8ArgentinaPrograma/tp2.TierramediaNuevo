@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import dao.AtraccionDAOImpl;
 import dao.DAOFactory;
+import dao.ItineraioDAOImpl;
 import dao.PromocionDAOImpl;
 import dao.UsuarioDAOImpl;
 
@@ -89,6 +90,7 @@ public class Sistema {
 		UsuarioDAOImpl usu = (UsuarioDAOImpl) DAOFactory.getUsuarioDAO();
 		PromocionDAOImpl pro = (PromocionDAOImpl) DAOFactory.getPromocionDAO();
 		AtraccionDAOImpl atra = (AtraccionDAOImpl) DAOFactory.getAtraccionDAO();
+		ItineraioDAOImpl itiDAO = DAOFactory.getItinerarioDaoImpl();
 		
 		for (Usuario visitante : visitantes) {
 			this.setOfertas(visitante);
@@ -112,7 +114,7 @@ public class Sistema {
 					if (respuesta == 1) {
 						visitante.comprarProducto(producto);
 						usu.actualizarDatos(visitante);
-						usu.insertarEnItinerario(producto, visitante);
+						itiDAO.insertarEnItinerario(producto, visitante);
 						
 						if(producto instanceof Atraccion) {
 							atra.actualizarDatos((Atraccion)producto);
