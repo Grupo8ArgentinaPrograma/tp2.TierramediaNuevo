@@ -1,7 +1,6 @@
 package model;
 
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import dao.AtraccionDAOImpl;
@@ -83,7 +82,7 @@ public class Sistema {
 		}
 	}
 
-	public void hacerOfertas() throws SQLException {
+	public void hacerOfertas()  {
 		
 		Scanner escaner = new Scanner(System.in);
 		int respuesta = 0;

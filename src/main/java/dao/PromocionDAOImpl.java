@@ -76,7 +76,7 @@ public class PromocionDAOImpl implements PromocionaDAO {
 	
 	
 	
-	public int actualizarAtraccionesDeLasPromociones(Promocion promocion) throws SQLException {
+	public int actualizarAtraccionesDeLasPromociones(Promocion promocion) {
 		
 		try {
 			String sql2 = "UPDATE Atraccion SET cupo = ? WHERE id = ?";
