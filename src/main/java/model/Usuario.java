@@ -42,7 +42,7 @@ public class Usuario {
 		this.dineroDisponible -= gasto;
 	}
 
-	private void restarTiempo(double tiempoUsado) {
+	public void restarTiempo(double tiempoUsado) {
 
 		if (getTiempoDisponible() < tiempoUsado) {
 			throw new Error("Tiempo insuficiente");
