@@ -106,7 +106,7 @@ public class Sistema {
 
 						continue;
 					}
-
+					
 					System.out.println("\n ¿"+visitante.getNombre() + " queres comprar?" + producto+"\n");
 					System.out.print(" 1 para comprar, cualquier otro numero para seguir>>");
 					respuesta = escaner.nextInt();
