@@ -3,7 +3,6 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import jdbc.Conexion;
@@ -36,7 +35,7 @@ public class PromocionDAOImpl implements PromocionaDAO {
 		}
 	}
 
-	public int contarTodos() throws SQLException {
+	public int contarTodos()  {
 		try {
 			String sql = "SELECT COUNT(1) AS TOTAL FROM Promocion";
 			Connection conn = Conexion.getConnection();
@@ -52,7 +51,7 @@ public class PromocionDAOImpl implements PromocionaDAO {
 		}
 	}
 
-	public int insertar(Promocion promocion) throws SQLException {
+	public int insertar(Promocion promocion) {
 		try {
 			String sql = "INSERT INTO Promocion (nombre,descripcion,descuento,tipo_id,atraccion1_id,atraccion2_id,atraccion3_id) VALUES (?,?,?, (SELECT id FROM TipoAtraccion WHERE descripcion = ?),(SELECT id FROM Atraccion WHERE nombre=? ),(SELECT id FROM Atraccion WHERE nombre=? ),(SELECT id FROM Atraccion WHERE nombre=? ))";
 			Connection conn = Conexion.getConnection();
@@ -73,9 +72,6 @@ public class PromocionDAOImpl implements PromocionaDAO {
 		}
 	}
 
-	
-	
-	
 	public int actualizarAtraccionesDeLasPromociones(Promocion promocion) {
 		
 		try {
@@ -97,7 +93,7 @@ public class PromocionDAOImpl implements PromocionaDAO {
 	}
 	
 	
-	public int actualizarDatos(Promocion promocion) throws SQLException {
+	public int actualizarDatos(Promocion promocion) {
 		try {
 			String sql = "UPDATE Promocion SET nombre = ?,descripcion = ?,descuento = ?,tipo_id = (SELECT id FROM TipoAtraccion WHERE descripcion = ?),atraccion1_id= (SELECT id FROM Atraccion WHERE nombre=?),atraccion2_id =(SELECT id FROM Atraccion WHERE nombre=?),atraccion3_id = (SELECT id FROM Atraccion WHERE nombre=?) WHERE id = ?";
 			Connection conn = Conexion.getConnection();
@@ -120,7 +116,7 @@ public class PromocionDAOImpl implements PromocionaDAO {
 		}
 	}
 
-	public int borrar(Promocion promocion) throws SQLException {
+	public int borrar(Promocion promocion)  {
 		try {
 			String sql = "DELETE FROM  Promocion WHERE id = ?";
 			Connection conn = Conexion.getConnection();
@@ -155,8 +151,9 @@ public class PromocionDAOImpl implements PromocionaDAO {
 		}
 	}
 
-	private Promocion aPromocion(ResultSet resultados) throws SQLException {
-
+	private Promocion aPromocion(ResultSet resultados)  {
+		
+	 try {
 		if (resultados.getString(2).equals("absoluta")) {
 			return new PromoAbsoluta(resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),
 					resultados.getInt(4),resultados.getInt(1));
@@ -171,6 +168,10 @@ public class PromocionDAOImpl implements PromocionaDAO {
 					resultados.getInt(4),resultados.getInt(1));
 		}
 		return null;
+	 } catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	 
 	}
 
 	private Atraccion[] crarPaquetes(ResultSet resultados) {

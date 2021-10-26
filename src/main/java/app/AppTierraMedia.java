@@ -1,14 +1,11 @@
 package app;
 
-
-
 import model.Sistema;
 
 public class AppTierraMedia {
 
 	public static void main(String[] args)  {
-
-		
+	
 		Sistema sistema = new Sistema();	
 		System.out.println("" 
 				+ "\n"
