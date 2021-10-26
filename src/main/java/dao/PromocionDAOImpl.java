@@ -58,7 +58,7 @@ public class PromocionDAOImpl implements PromocionaDAO {
 			PreparedStatement statement = conn.prepareStatement(sql);
 
 			statement.setString(1, promocion.getNombre());
-			statement.setString(2, "");
+			statement.setString(2, promocion.getDescripcion());
 			statement.setDouble(3, promocion.getDescuento());
 			statement.setString(4, promocion.getTipo());
 			statement.setString(5, promocion.getAtraccionesIncluidas().get(0));
@@ -100,7 +100,7 @@ public class PromocionDAOImpl implements PromocionaDAO {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			
 			statement.setString(1, promocion.getNombre());
-			statement.setString(2,"");
+			statement.setString(2, promocion.getDescripcion());
 			statement.setDouble(3, promocion.getDescuento());
 			statement.setString(4, promocion.getTipo());
 			statement.setString(5, promocion.getAtraccionesIncluidas().get(0));
@@ -155,16 +155,16 @@ public class PromocionDAOImpl implements PromocionaDAO {
 		
 	 try {
 		if (resultados.getString(2).equals("absoluta")) {
-			return new PromoAbsoluta(resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),
+			return new PromoAbsoluta(resultados.getString(2),resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),
 					resultados.getInt(4),resultados.getInt(1));
 		}
 
 		if (resultados.getString(2).equals("axb")) {
-			return new PromoAxB(resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),resultados.getInt(1),resultados.getInt(1));
+			return new PromoAxB(resultados.getString(2),resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),resultados.getInt(1),resultados.getInt(1));
 		}
 
 		if (resultados.getString(2).equals("porcentual")) {
-			return new PromoPorcentual(resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),
+			return new PromoPorcentual(resultados.getString(2),resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),
 					resultados.getInt(4),resultados.getInt(1));
 		}
 		return null;

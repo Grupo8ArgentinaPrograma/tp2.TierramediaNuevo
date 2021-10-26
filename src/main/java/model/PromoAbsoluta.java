@@ -23,6 +23,17 @@ public class PromoAbsoluta extends Promocion {
 		}
 	}
 	
+	public PromoAbsoluta(String nombre,String descripcion ,Atraccion[]paquete,String tipo, double costo,int id) {
+		super(nombre,descripcion,paquete ,tipo);
+		super.setId(id);
+		this.costo = costo;
+		super.setCosto(costo);
+		if( costo < 0 ) {
+			throw new Error("El costo no puede ser negativo");
+		}
+	}
+	
+	
 	@Override
 	public double getCosto() {
 		return this.costo;

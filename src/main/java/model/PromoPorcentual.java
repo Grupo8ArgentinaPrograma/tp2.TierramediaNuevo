@@ -28,6 +28,19 @@ public class PromoPorcentual extends Promocion {
 		}
 	}
 	
+	
+	public PromoPorcentual(String nombre,String descripcion,Atraccion[] paquete, String tipo, int descuento, int id) {
+		super(nombre,descripcion ,paquete, tipo,descuento,id);
+		this.descuento = descuento;
+		super.setCosto(getCosto());
+		if (descuento < 0 || descuento > 100) {
+			throw new Error("El descuento no puede ser negativo");
+		}
+		if (descuento > 100) {
+			throw new Error("El descuento no puede ser superior al 100%");
+		}
+	}
+	
 	@Override
 	public void ocuparLugar() {
 		for (Atraccion a : super.getItinerario()) {

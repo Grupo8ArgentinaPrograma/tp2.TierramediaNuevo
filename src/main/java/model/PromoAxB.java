@@ -13,6 +13,11 @@ public class PromoAxB extends Promocion {
 		super(nombre, paquete, tipo,descuento,id);
 		super.setCosto(getCosto());
 	}
+	
+	public PromoAxB(String nombre, String descripcion,Atraccion[] paquete, String tipo,int descuento,int id) {
+		super(nombre,descripcion ,paquete, tipo,descuento,id);
+		super.setCosto(getCosto());
+	}
 
 	@Override
 	public void ocuparLugar() {

@@ -5,8 +5,9 @@ import model.Sistema;
 public class AppTierraMedia {
 
 	public static void main(String[] args)  {
-	
-		Sistema sistema = new Sistema();	
+
+		
+	Sistema sistema = new Sistema();	
 		System.out.println("" 
 				+ "\n"
 				+ "                                 /\\\r\n"
