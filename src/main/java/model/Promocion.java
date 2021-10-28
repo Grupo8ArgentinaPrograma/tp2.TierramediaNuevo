@@ -123,6 +123,11 @@ public abstract class Promocion extends Ofertable {
 		this.itinerario = itinerario;
 	}
 
+	
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
 	public int getDescuento() {
 		return descuento;
 	}
