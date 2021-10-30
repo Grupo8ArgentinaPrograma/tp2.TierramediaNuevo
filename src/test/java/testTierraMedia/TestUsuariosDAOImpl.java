@@ -12,7 +12,7 @@ import dao.UsuarioDAO;
 import model.Ofertable;
 import model.Usuario;
 
-public class TestUsuarios {
+public class TestUsuariosDAOImpl {
 
 	UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
 
