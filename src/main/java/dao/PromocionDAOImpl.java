@@ -153,21 +153,22 @@ public class PromocionDAOImpl implements PromocionaDAO {
 
 	private Promocion aPromocion(ResultSet resultados)  {
 		
+	Promocion promocion= null; 
 	 try {
 		if (resultados.getString(2).equals("absoluta")) {
-			return new PromoAbsoluta(resultados.getString(2),resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),
+			promocion = (PromoAbsoluta)new PromoAbsoluta(resultados.getString(2),resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),
 					resultados.getInt(4),resultados.getInt(1));
 		}
 
 		if (resultados.getString(2).equals("axb")) {
-			return new PromoAxB(resultados.getString(2),resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),resultados.getInt(1),resultados.getInt(1));
+			promocion =(PromoAxB) new PromoAxB(resultados.getString(2),resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),resultados.getInt(1),resultados.getInt(1));
 		}
 
 		if (resultados.getString(2).equals("porcentual")) {
-			return new PromoPorcentual(resultados.getString(2),resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),
+			promocion = (PromoPorcentual)new PromoPorcentual(resultados.getString(2),resultados.getString(3), crarPaquetes(resultados), resultados.getString(10),
 					resultados.getInt(4),resultados.getInt(1));
 		}
-		return null;
+		return promocion;
 	 } catch (Exception e) {
 			throw new MissingDataException(e);
 		}
